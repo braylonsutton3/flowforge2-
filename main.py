@@ -11,20 +11,19 @@ PAGE = r'''<!doctype html>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="FlowForge Web builds professional, mobile-friendly websites for local and small businesses.">
   <title>FlowForge Web | Custom Websites for Local Business</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307142d'/%3E%3Cpath d='M12 21h24l-9 9 9 9H12l9-9z' fill='%231e8bff'/%3E%3Cpath d='M52 43H28l9-9-9-9h24l-9 9z' fill='%23ffc629'/%3E%3C/svg%3E">
   <style>
     :root {
-      --navy: #06142f;
-      --navy-2: #0a2145;
-      --blue: #1688f8;
-      --blue-light: #54adff;
+      --navy: #f7fbff;
+      --navy-2: #eaf4ff;
+      --blue: #075eac;
+      --blue-light: #1688f8;
       --yellow: #ffc629;
-      --yellow-light: #ffe178;
-      --white: #f7fbff;
-      --muted: #b7c8df;
-      --card: rgba(10, 33, 69, .78);
-      --border: rgba(102, 171, 255, .2);
-      --shadow: 0 22px 60px rgba(0, 0, 0, .28);
+      --yellow-light: #fff0a8;
+      --white: #102a43;
+      --muted: #55718d;
+      --card: rgba(255, 255, 255, .94);
+      --border: rgba(7, 94, 172, .16);
+      --shadow: 0 22px 60px rgba(17, 72, 120, .13);
     }
 
     * { box-sizing: border-box; }
@@ -33,15 +32,14 @@ PAGE = r'''<!doctype html>
       margin: 0;
       color: var(--white);
       background:
-        radial-gradient(circle at 80% 8%, rgba(22, 136, 248, .19), transparent 28rem),
-        radial-gradient(circle at 8% 78%, rgba(255, 198, 41, .08), transparent 24rem),
+        radial-gradient(circle at 80% 8%, rgba(22, 136, 248, .14), transparent 28rem),
+        radial-gradient(circle at 8% 78%, rgba(255, 198, 41, .15), transparent 24rem),
         var(--navy);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.6;
     }
 
     a { color: inherit; }
-    img { max-width: 100%; display: block; }
     .container { width: min(1120px, calc(100% - 2rem)); margin: 0 auto; }
 
     .nav {
@@ -49,7 +47,7 @@ PAGE = r'''<!doctype html>
       top: 0;
       z-index: 20;
       border-bottom: 1px solid var(--border);
-      background: rgba(6, 20, 47, .86);
+      background: rgba(255, 255, 255, .9);
       backdrop-filter: blur(16px);
     }
     .nav-inner {
@@ -64,7 +62,7 @@ PAGE = r'''<!doctype html>
     .brand span:last-child { color: var(--yellow); }
     .nav-links { display: flex; align-items: center; gap: 1.4rem; }
     .nav-links a { color: var(--muted); text-decoration: none; font-weight: 700; font-size: .94rem; }
-    .nav-links a:hover, .nav-links a:focus-visible { color: var(--white); }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--blue); }
 
     .button {
       display: inline-flex;
@@ -82,7 +80,7 @@ PAGE = r'''<!doctype html>
       transition: transform .2s ease, box-shadow .2s ease;
     }
     .button:hover { transform: translateY(-2px); box-shadow: 0 16px 34px rgba(255, 198, 41, .28); }
-    .button.secondary { background: transparent; color: var(--white); border-color: rgba(255,255,255,.24); box-shadow: none; }
+    .button.secondary { background: #fff; color: var(--blue); border-color: rgba(7,94,172,.28); box-shadow: none; }
     .button.secondary:hover { border-color: var(--blue-light); }
 
     .hero {
@@ -101,10 +99,10 @@ PAGE = r'''<!doctype html>
       font-size: clamp(12rem, 26vw, 26rem);
       font-weight: 950;
       line-height: 1;
-      color: rgba(22, 136, 248, .035);
+      color: rgba(22, 136, 248, .06);
       pointer-events: none;
     }
-    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 3.5rem; }
+    .hero-grid { display: grid; grid-template-columns: 1fr; align-items: center; max-width: 850px; }
     .eyebrow { display: inline-flex; gap: .55rem; align-items: center; color: var(--yellow-light); font-weight: 900; letter-spacing: .12em; text-transform: uppercase; font-size: .78rem; }
     .eyebrow::before { content: ""; width: 34px; height: 3px; border-radius: 99px; background: var(--yellow); }
     h1, h2, h3 { line-height: 1.08; margin-top: 0; }
@@ -113,16 +111,6 @@ PAGE = r'''<!doctype html>
     h1 .forge { color: var(--yellow); }
     .hero p { color: var(--muted); max-width: 650px; font-size: clamp(1.05rem, 2vw, 1.25rem); margin-bottom: 2rem; }
     .hero-actions { display: flex; flex-wrap: wrap; gap: .85rem; }
-    .hero-art {
-      border: 1px solid var(--border);
-      border-radius: 32px;
-      overflow: hidden;
-      background: #07152f;
-      box-shadow: var(--shadow);
-      transform: rotate(1deg);
-    }
-    .hero-art img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
-
     section { padding: 6rem 0; }
     .section-kicker { color: var(--yellow); font-weight: 900; text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; }
     .section-title { font-size: clamp(2.25rem, 4vw, 4rem); letter-spacing: -.055em; max-width: 780px; margin: .7rem 0 1.25rem; }
@@ -141,10 +129,10 @@ PAGE = r'''<!doctype html>
     .feature h3 { margin: .75rem 0 .5rem; font-size: 1.1rem; }
     .feature p { margin: 0; color: var(--muted); font-size: .95rem; }
 
-    .pricing { border-block: 1px solid var(--border); background: rgba(4, 15, 36, .44); }
+    .pricing { border-block: 1px solid var(--border); background: linear-gradient(180deg, #edf6ff 0%, #ffffff 100%); }
     .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2.5rem; }
     .price-card { padding: 2rem; position: relative; overflow: hidden; }
-    .price-card.featured { border-color: rgba(255, 198, 41, .6); transform: translateY(-10px); }
+    .price-card.featured { border-color: rgba(255, 198, 41, .85); transform: translateY(-10px); box-shadow: 0 24px 60px rgba(7,94,172,.16); }
     .price-card.featured::before { content: "Popular"; position: absolute; top: 16px; right: -34px; transform: rotate(42deg); width: 130px; text-align: center; background: var(--yellow); color: #111827; font-weight: 900; font-size: .75rem; }
     .price-card h3 { color: var(--white); font-size: 1.2rem; margin-bottom: 1rem; }
     .price { font-size: 3.2rem; font-weight: 950; letter-spacing: -.06em; color: var(--yellow); }
@@ -154,11 +142,11 @@ PAGE = r'''<!doctype html>
     .price-card li::before { content: "✓"; color: var(--blue-light); font-weight: 950; margin-right: .65rem; }
 
     .referral-wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 2rem; align-items: center; }
-    .referral-card { padding: clamp(2rem, 4vw, 3.5rem); border-color: rgba(255, 198, 41, .45); background: linear-gradient(145deg, rgba(255, 198, 41, .11), rgba(10, 33, 69, .8)); }
+    .referral-card { padding: clamp(2rem, 4vw, 3.5rem); border-color: rgba(255, 198, 41, .7); background: linear-gradient(145deg, #fff9dc, #edf6ff); }
     .commission { font-size: clamp(5rem, 12vw, 9rem); font-weight: 950; letter-spacing: -.09em; line-height: .9; color: var(--yellow); }
     .commission-label { color: var(--yellow-light); text-transform: uppercase; font-weight: 900; letter-spacing: .14em; margin-top: .75rem; }
 
-    .contact-card { padding: clamp(2rem, 5vw, 4rem); text-align: center; background: linear-gradient(145deg, rgba(22,136,248,.13), rgba(10,33,69,.9)); }
+    .contact-card { padding: clamp(2rem, 5vw, 4rem); text-align: center; background: linear-gradient(145deg, #eaf5ff, #ffffff 58%, #fff9dc); }
     .contact-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
     .contact-note { color: var(--muted); margin: 1.5rem 0 0; }
 
@@ -169,7 +157,6 @@ PAGE = r'''<!doctype html>
       .nav-links a:not(.button) { display: none; }
       .hero { min-height: auto; padding-top: 4rem; }
       .hero-grid, .about-grid, .referral-wrap { grid-template-columns: 1fr; }
-      .hero-art { order: -1; transform: none; }
       .price-grid { grid-template-columns: 1fr; }
       .price-card.featured { transform: none; }
     }
@@ -211,9 +198,6 @@ PAGE = r'''<!doctype html>
             <a class="button" href="mailto:braylonsutton3@gmail.com?subject=FlowForge%20Website%20Inquiry">Start Your Website</a>
             <a class="button secondary" href="#pricing">See Pricing</a>
           </div>
-        </div>
-        <div class="hero-art">
-          <img src="{{ url_for('static', filename='flowforge-cover.png') }}" alt="FlowForge blue and gold snake coding logo">
         </div>
       </div>
     </section>
@@ -316,3 +300,4 @@ def home():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
+
